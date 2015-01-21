@@ -3,7 +3,64 @@ Rails.application.routes.draw do
 get "/" => "home#home"
 get '/about' => "about#about"
 
+resources :projects
+
 root "home#home"
+
+  # get "/projects/new" => "projects#new", as: :new_project
+  # post "/projects" => "projects#create", as: :projects ###
+  # get "/projects/:id" => "projects#show", as: :project ##
+  # get "/projects" => "projects#index"
+  # get "/projects/:id/edit" => "projects#edit", as: :edit_project # These are URL helpers # 
+  # patch "/projects/:id" => "projects#update" 
+  # delete "/projects/:id" => "projects#destroy"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
