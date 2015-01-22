@@ -3,7 +3,15 @@ Rails.application.routes.draw do
 get "/" => "home#home"
 get '/about' => "about#about"
 
+# resources :projects do
+#   resources :tasks, only: [:create, :destroy]
+# end
+
 resources :projects
+resources :tasks
+
+
+
 
 root "home#home"
 
