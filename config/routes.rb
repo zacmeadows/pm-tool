@@ -7,8 +7,9 @@ get '/about' => "about#about"
 #   resources :tasks, only: [:create, :destroy]
 # end
 
-resources :projects
-resources :tasks
+resources :projects do
+  resources :tasks 
+end 
 
 
 

@@ -1,9 +1,12 @@
-<%= form_for @task do |f| %> 
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <br> 
-  <%= f.label :due_date %> 
-  <%= f.text_field :due_date %>
-  <br>
-  <%= f.submit %> 
-<% end %>
+<%= form_for [@project, @task] do |f| %> 
+   <%= f.label :title %>
+   <%= f.text_field :title %>
+   <br>
+   <%= f.label :body %>
+   <%= f.text_area :body %>
+   <br> 
+   <%= f.label :due_date %> 
+   <%= f.text_field :due_date %>
+   <br>
+   <%= f.submit %> 
+<% end %> 

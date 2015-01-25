@@ -3,4 +3,19 @@
 <h4>Due Date: <%= @project.due_date %></h4>
 <p><%= link_to "Edit", edit_project_path(@project) %></p>
 <p><%= link_to "Delete", project_path(@project), method: :delete, data: {confirm: "Are you sure you want to delete?"} %></p>
-<hr> 
+<hr>
+
+<h1>Create a Task</h1>
+<%= render "/tasks/form" %>
+<hr>
+
+<h1>Tasks</h1>
+
+<% @project.tasks.each do |task| %> 
+  <h3><%= task.title %></h3>
+  <p>Body: <%= task.body %></p>
+  <p>Date: <%= task.due_date %></p>
+  <hr>
+<% end %> 
+<hr>
+
