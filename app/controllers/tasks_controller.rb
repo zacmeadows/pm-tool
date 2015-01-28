@@ -18,14 +18,15 @@ class TasksController < ApplicationController
     end 
   end 
 
-  # def edit 
-  #   # @task = Task.find params[:id]
-  # end 
+  def edit 
+    @task = Task.find params[:id]
+    @project = @task.project
+  end 
 
   def update 
     @task = Task.find params[:id]
       if @task.update task_params
-        redirect_to tasks_path
+        redirect_to project_path(@task.project)
       else
         render :edit
       end 
@@ -33,8 +34,9 @@ class TasksController < ApplicationController
 
   def destroy
     @task = Task.find params[:id]
+    @project = @task.project
     @task.destroy
-    redirect_to tasks_path
+    redirect_to project_path(@project)
   end 
 
   private 
