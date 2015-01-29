@@ -12,6 +12,12 @@ resources :projects do
   resources :discussions
 end 
 
+resources :discussions, only: [] do
+  resources :comments, only: [:create, :destroy]
+end
+
+
+
 
 
 

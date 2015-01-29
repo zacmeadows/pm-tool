@@ -21,6 +21,13 @@ class DiscussionsController < ApplicationController
       end 
   end
 
+  def show 
+    # render text: params 
+    @project = Project.find params[:project_id]
+    @discussion = Discussion.find params[:id]
+    @comment = Comment.new 
+  end 
+
   def destroy
     @discussion = Discussion.find params[:id]
     @project = @discussion.project
@@ -34,6 +41,5 @@ class DiscussionsController < ApplicationController
   def discussion_params
     params.require(:discussion).permit(:title, :description, :project_id)
   end
-
-
+  
 end
