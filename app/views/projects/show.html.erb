@@ -5,12 +5,18 @@
 <p><%= link_to "Delete", project_path(@project), method: :delete, data: {confirm: "Are you sure you want to delete?"} %></p>
 <hr>
 
+
 <h1>Create a Task</h1>
 <%= render "/tasks/form" %>
 <hr>
 
-<h1>Tasks</h1>
 
+<h1>Create a Discussion</h1>
+<%= render "/discussions/form" %>
+<hr>
+
+
+<h1>Tasks</h1>
 <% @project.tasks.each do |task| %> 
   <h3><%= task.title %></h3>
   <p>Body: <%= task.body %></p>
@@ -19,5 +25,15 @@
   <p><%= link_to "Delete", project_task_path(@project, task), method: :delete, data: {confirm: "Are you sure you want to delete?"} %></p>
   <hr>
 <% end %> 
-<hr>
+
+
+<h1>Discussions</h1>
+<% @project.discussions.each do |discussion| %>
+  <h3><%= discussion.title %></h3>
+  <p>Description: <%= discussion.description %></p>
+  <p><%= link_to "Edit", edit_project_discussion_path(@project, discussion) %></p>
+  <p><%= link_to "Delete", project_discussion_path(@project, discussion), method: :delete, data: {confirm: "Are you sure?"} %></p>
+  <hr>
+<% end %>  
+  
 

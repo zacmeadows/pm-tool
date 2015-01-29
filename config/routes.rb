@@ -9,6 +9,7 @@ get '/about' => "about#about"
 
 resources :projects do
   resources :tasks 
+  resources :discussions
 end 
 
 
