@@ -15,6 +15,8 @@ end
 
 
 
+
+
 root "home#home"
 
   # get "/projects/new" => "projects#new", as: :new_project
