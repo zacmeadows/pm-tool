@@ -6,6 +6,8 @@
   <p><%= link_to "Delete", project_discussion_path(@project, @discussion), method: :delete, data: {confirm: "Are you sure?"} %></p>
 <hr>
 
+
+<h2>Comments</h2>
 <%= form_for [@discussion, @comment] do |f| %> 
    <%= f.label :body %>
    <%= f.text_field :body %>

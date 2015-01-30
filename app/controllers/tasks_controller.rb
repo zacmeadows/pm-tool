@@ -6,7 +6,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to project_path params[:project_id]
     else
-      redirect_to :new
+      render "new"
     end 
   end 
 

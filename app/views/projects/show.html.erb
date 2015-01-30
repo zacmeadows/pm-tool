@@ -16,7 +16,7 @@
 <hr>
 
 
-<h1>Tasks</h1>
+<h1>Project Tasks</h1>
 <% @project.tasks.each do |task| %> 
   <h3><%= task.title %></h3>
   <p>Body: <%= task.body %></p>
@@ -26,8 +26,9 @@
   <hr>
 <% end %> 
 
+<hr>
 
-<h1>Discussions</h1>
+<h1>Project Discussions</h1>
 <% @project.discussions.each do |discussion| %>
   <h2><%= link_to discussion.title, project_discussion_path(@project, discussion) %></h2>
 <% end %>  

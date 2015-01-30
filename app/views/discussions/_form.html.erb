@@ -1,3 +1,11 @@
+<% if @discussion.errors.any? %>
+  <ul>
+    <% @discussion.errors.full_messages.each do |msg| %> 
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_for [@project, @discussion] do |f| %> 
    <%= f.label :title %>
    <%= f.text_field :title %>
