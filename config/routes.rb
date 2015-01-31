@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 get "/" => "home#home"
 get '/about' => "about#about"
+patch "/tasks/:id" => "tasks#toggle_task", as: :toggle_task
 
 # resources :projects do
 #   resources :tasks, only: [:create, :destroy]

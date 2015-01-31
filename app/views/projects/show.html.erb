@@ -23,7 +23,13 @@
   <p>Date: <%= task.due_date %></p>
   <p><%= link_to "Edit", edit_project_task_path(@project, task) %></p>
   <p><%= link_to "Delete", project_task_path(@project, task), method: :delete, data: {confirm: "Are you sure you want to delete?"} %></p>
+  <% if task.status == true %>
+    <p><%= link_to "Done", toggle_task_path(task), method: :patch %></p>
+  <% else %>
+    <p><%= link_to "Not Done", toggle_task_path(task), method: :patch %></p>
+  <% end %>
   <hr>
+
 <% end %> 
 
 <hr>

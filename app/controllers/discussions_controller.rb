@@ -3,8 +3,11 @@ class DiscussionsController < ApplicationController
   def create
     @project = Project.find params[:project_id]
     @discussion = @project.discussions.new discussion_params
-    @discussion.save
-    redirect_to project_path params[:project_id]
+    if @discussion.save
+      redirect_to project_path params[:project_id]
+    else
+      render "new"
+    end 
   end 
 
   def edit

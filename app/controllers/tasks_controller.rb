@@ -3,6 +3,7 @@ class TasksController < ApplicationController
   def create
     @project = Project.find params[:project_id] 
     @task = @project.tasks.new task_params
+    @task.status = false
     if @task.save
       redirect_to project_path params[:project_id]
     else
@@ -31,10 +32,21 @@ class TasksController < ApplicationController
     redirect_to project_path(@project)
   end 
 
+  def toggle_task
+    @task = Task.find params[:id]
+    if @task.status == true
+      @task.status = false
+    else  
+      @task.status = true
+    end 
+      @task.save
+      redirect_to project_path(@task.project)
+  end 
+
   private 
 
   def task_params
-    params.require(:task).permit(:title, :due_date, :project_id, :body)
+    params.require(:task).permit(:title, :due_date, :project_id, :body, :status)
   end
 
 end
