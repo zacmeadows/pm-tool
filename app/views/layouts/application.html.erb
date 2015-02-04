@@ -21,6 +21,9 @@
   |
   <a href="/projects/new">New Project</a>
 
+<br>
+<%= flash[:notice] || flash[:alert] %>
+<hr>
 <%= yield %>
 
 </body>

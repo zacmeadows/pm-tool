@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-get "/" => "home#home"
+  devise_for :users
+get "/" => "home#index"
 get '/about' => "about#about"
 patch "/tasks/:id" => "tasks#toggle_task", as: :toggle_task
 
@@ -20,11 +21,7 @@ end
 
 
 
-
-
-
-
-root "home#home"
+root "home#index"
 
   # get "/projects/new" => "projects#new", as: :new_project
   # post "/projects" => "projects#create", as: :projects ###
