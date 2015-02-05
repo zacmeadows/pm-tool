@@ -10,6 +10,13 @@
 
     <p><%= link_to "Edit", edit_project_path(@project) %></p>
     <p><%= link_to "Delete", project_path(@project), method: :delete, data: {confirm: "Are you sure you want to delete?"} %></p>
+
+    <% if user_signed_in? && current_user.has_favorited?(@project) %>
+      <% @favorite = current_user.favorites.find_by_project_id(@project.id) %>
+      <%= link_to "Unfavorite", project_favorite_path(@project, @favorite), class: "btn btn-danger", method: :delete %>
+    <% else %>
+      <%= link_to "Favorite", project_favorites_path(@project), class: "btn btn-info", method: :post %>
+    <% end %> 
   </div>
 
   <div class="well">

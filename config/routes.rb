@@ -12,6 +12,7 @@ patch "/tasks/:id" => "tasks#toggle_task", as: :toggle_task
 resources :projects do
   resources :tasks 
   resources :discussions
+  resources :favorites, only: [:create, :destroy]
 end 
 
 resources :discussions, only: [] do
