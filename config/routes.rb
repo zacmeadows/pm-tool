@@ -1,28 +1,24 @@
 Rails.application.routes.draw do
 
   devise_for :users
-get "/" => "home#index"
-get '/about' => "about#about"
-patch "/tasks/:id" => "tasks#toggle_task", as: :toggle_task
+  match "/delayed_job" => DelayedJobWeb, :anchor => false, via: [:get, :post]
 
-# resources :projects do
-#   resources :tasks, only: [:create, :destroy]
-# end
+  get "/" => "home#index"
+  get '/about' => "about#about"
+  patch "/tasks/:id" => "tasks#toggle_task", as: :toggle_task
 
-resources :projects do
-  resources :tasks 
-  resources :discussions
-  resources :favorites, only: [:create, :destroy]
-end 
+  resources :projects do
+    resources :tasks 
+    resources :discussions
+    resources :favorites, only: [:create, :destroy]
+  end 
 
-resources :discussions, only: [] do
-  resources :comments, only: [:create, :destroy]
-end
+  resources :discussions, only: [] do
+    resources :comments, only: [:create, :destroy]
+  end
 
 
-
-
-root "home#index"
+  root "home#index"
 
   # get "/projects/new" => "projects#new", as: :new_project
   # post "/projects" => "projects#create", as: :projects ###

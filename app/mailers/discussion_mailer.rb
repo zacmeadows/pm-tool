@@ -4,7 +4,7 @@ class DiscussionMailer < ApplicationMailer
     @comment = comment
     @discussion = @comment.discussion
     @user = @discussion.user
-    mail to: @user.email, subject: "You've got and answer!"
+    mail to: @user.email, subject: "You've got a comment!"
   end 
 
 end

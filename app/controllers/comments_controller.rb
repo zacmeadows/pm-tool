@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @comment.discussion_id = @discussion.id
     @comment.save
-    DiscussionMailer.notify_discussion_owner(@comment).deliver
+    DiscussionMailer.notify_discussion_owner(@comment).deliver_later
     redirect_to project_discussion_path(@discussion.project_id, @discussion)
   end 
 
