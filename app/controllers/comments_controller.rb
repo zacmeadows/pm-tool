@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
 
+  before_action :authenticate_user!
+
   def create
     @discussion = Discussion.find params[:discussion_id] 
     @comment = Comment.new comment_params

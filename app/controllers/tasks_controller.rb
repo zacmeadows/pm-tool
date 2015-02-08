@@ -1,5 +1,7 @@
 class TasksController < ApplicationController
 
+  before_action :authenticate_user!
+
   def create
     @project = Project.find params[:project_id]
     @task = @project.tasks.new task_params
@@ -35,12 +37,14 @@ class TasksController < ApplicationController
 
   def toggle_task
     @task = Task.find params[:id]
+    @task.user = current_user
     if @task.status == true
       @task.status = false
     else  
       @task.status = true
     end 
       @task.save
+      TaskMailer.task_completion_notification(@task).deliver
       redirect_to project_path(@task.project)
   end 
 

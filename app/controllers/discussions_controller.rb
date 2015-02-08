@@ -1,4 +1,7 @@
 class DiscussionsController < ApplicationController
+
+  before_action :authenticate_user!, except: [:show]
+
   
   def create
     @project = Project.find params[:project_id]
