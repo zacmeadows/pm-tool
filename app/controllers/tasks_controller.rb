@@ -44,7 +44,7 @@ class TasksController < ApplicationController
       @task.status = true
     end 
       @task.save
-      TaskMailer.task_completion_notification(@task).deliver
+      TaskMailer.task_completion_notification(@task).deliver_later
       redirect_to project_path(@task.project)
   end 
 
