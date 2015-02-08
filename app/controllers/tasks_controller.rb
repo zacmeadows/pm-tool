@@ -1,8 +1,9 @@
 class TasksController < ApplicationController
 
   def create
-    @project = Project.find params[:project_id] 
+    @project = Project.find params[:project_id]
     @task = @project.tasks.new task_params
+    @task.user = current_user
     @task.status = false
     if @task.save
       redirect_to project_path params[:project_id]
