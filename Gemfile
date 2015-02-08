@@ -39,6 +39,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem "thin"
 
 group :development do
+  gem 'letter_opener'
   gem "colorize"
   gem "interactive_editor"
   gem "hirb"
