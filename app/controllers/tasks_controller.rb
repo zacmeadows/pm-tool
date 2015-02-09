@@ -34,7 +34,8 @@ class TasksController < ApplicationController
     @task = Task.find params[:id]
     @project = @task.project
     @task.destroy
-    redirect_to project_path(@project)
+    respond_with ()
+    # redirect_to project_path(@project)
   end 
 
   def toggle_task
