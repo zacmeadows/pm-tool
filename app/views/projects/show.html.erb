@@ -19,31 +19,27 @@
     <% end %> 
   </div>
 
-  <div class="well">
+  <div class="well"> 
     <h1>Create a Task</h1>
-    <%= render "/tasks/form" %>
+      <div id="task-form">
+        <%= render "/tasks/form" %>
+      </div>
   </div>
+
+  <div class="well">
+    <h1>Project Tasks</h1>
+      <div id="task-index">
+        <% @project.tasks.each do |task| %> 
+          <%= render partial: "/tasks/task", locals: {task: task} %>
+        <% end %>
+      </div>
+  </div> 
+
 
   <div class="well">
     <h1>Create a Discussion</h1>
     <%= render "/discussions/form" %>
   </div>
-
-  <div class="well">
-    <h1>Project Tasks</h1>
-    <% @project.tasks.each do |task| %> 
-      <h3><%= task.title %></h3>
-      <p>Body: <%= task.body %></p>
-      <p>Date: <%= task.due_date %></p>
-      <p><%= link_to "Edit", edit_project_task_path(@project, task) %></p>
-      <p><%= link_to "Delete", project_task_path(@project, task), method: :delete, data: {confirm: "Are you sure you want to delete?"} %></p>
-      <% if task.status == true %>
-        <p><%= link_to "Complete", toggle_task_path(task), method: :patch %></p>
-      <% else %>
-        <p><%= link_to "Incomplete", toggle_task_path(task), method: :patch %></p>
-      <% end %>
-    <% end %>
-  </div> 
 
   <div class="well">
     <h1>Project Discussions</h1>
