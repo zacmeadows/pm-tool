@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
 
   before_action :authenticate_user!
+  respond_to :js
 
   def create
     @project = Project.find params[:project_id]
@@ -8,7 +9,8 @@ class TasksController < ApplicationController
     @task.user = current_user
     @task.status = false
     if @task.save
-      redirect_to project_path params[:project_id]
+      respond_with ()
+      # redirect_to project_path params[:project_id]
     else
       render "new"
     end 
