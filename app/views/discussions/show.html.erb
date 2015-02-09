@@ -14,3 +14,9 @@
    <br>
    <%= f.submit %> 
 <% end %>
+
+
+<% @discussion.comments.each do |comment| %>
+  <p>Comment: <%= comment.body %></p>
+  <p><%= link_to "Delete", discussion_comment_path(@discussion, comment), method: :delete, data: {confirm: "Are you sure?"} %></p>
+<% end %>
