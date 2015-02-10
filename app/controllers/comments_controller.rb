@@ -18,7 +18,8 @@ class CommentsController < ApplicationController
     @comment = Comment.find params[:id]
     @discussion = @comment.discussion
     @comment.destroy
-    redirect_to project_discussion_path(@discussion.project_id, @discussion)
+    respond_with ()
+    # redirect_to project_discussion_path(@discussion.project_id, @discussion)
   end 
 
   private 
