@@ -1,4 +1,4 @@
-<center>
+<div class="container">  
   <% if @project.errors.any? %>
     <ul>
       <% @project.errors.full_messages.each do |msg| %>
@@ -9,17 +9,18 @@
 
   <%= form_for @project do |f| %> 
     <%= f.label :title %> 
-    <%= f.text_field :title %> 
+    <%= f.text_field :title, class: "form-control" %> 
     <br>
     <%= f.label :description %> 
-    <%= f.text_area :description %>
+    <%= f.text_area :description, class: "form-control" %>
     <br> 
     <%= f.label :due_date %> 
-    <%= f.text_field :due_date %>
+    <%= f.text_field :due_date, placeholder: "yyyy-mm-dd", class: "form-control" %>
     <br>
     <%= f.label :projectmember_ids %>
-    <%= f.collection_check_boxes :projectmember_ids, User.all, :id, :full_name %>
+    <%= f.collection_check_boxes :projectmember_ids, User.all, :id, :full_name, class: "form-control" %>
     <br>
-    <%= f.submit %> 
+    <br>
+    <%= f.submit "Create", class: "btn btn-custom" %> 
   <% end %>
-</center>
+</div>

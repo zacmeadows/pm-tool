@@ -1,22 +1,20 @@
-<center>
-   <% if @task.errors.any? %>
-      <ul>
-         <% @task.errors.full_messages.each do |msg| %> 
-            <li><%= msg %></li>
-         <% end %>
-      </ul>
-   <% end %>
+<% if @task.errors.any? %>
+   <ul>
+      <% @task.errors.full_messages.each do |msg| %> 
+         <li><%= msg %></li>
+      <% end %>
+   </ul>
+<% end %>
 
-   <%= form_for [@project, @task], remote: true do |f| %> 
-      <%= f.label :title %>
-      <%= f.text_field :title %>
-      <br>
-      <%= f.label :body %>
-      <%= f.text_area :body %>
-      <br> 
-      <%= f.label :due_date %> 
-      <%= f.text_field :due_date %>
-      <br>
-      <%= f.submit %> 
-   <% end %>
-</center>
+<%= form_for [@project, @task], remote: true do |f| %> 
+   <%= f.label :title %>
+   <%= f.text_field :title, class: "form-group" %>
+   <br>
+   <%= f.label :body %>
+   <%= f.text_area :body, class: "form-group" %>
+   <br> 
+   <%= f.label :due_date %> 
+   <%= f.text_field :due_date, placeholder: "YYYY-MM-DD", class: "form-group" %>
+   <br>
+   <%= f.submit %> 
+<% end %>

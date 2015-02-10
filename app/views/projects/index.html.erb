@@ -1,9 +1,9 @@
-<center>
+<div class="container">
   <h1><a href="/projects">All Projects</a></h1>
 
   <%= form_tag(projects_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Projects" %><br>
-    <%= submit_tag "Search", :title => nil %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Projects", class: "form-control" %><br>
+    <%= submit_tag "Search", :title => nil, class: "btn btn-custom" %>
   <% end %>
 
   <% @projects.each do |project| %> 
@@ -11,4 +11,4 @@
     <p><%= project.description %></p>
     <hr>
   <% end %>
-</center>
+</div>

@@ -1,9 +1,9 @@
 <div id="<%= dom_id(task) %>">
-  <h3><%= task.title %></h3>
-  <p>Body: <%= task.body %></p>
-  <p>Date: <%= task.due_date %></p>
-  <p><%= link_to "Edit", edit_project_task_path(@project, task) %></p>
-  <p><%= link_to "Delete", project_task_path(@project, task), method: :delete, data: {confirm: "Are you sure you want to delete?"}, remote: true %></p>
+  <h4>Title: <%= task.title %></h4>
+  <p><strong>Body: </strong><%= task.body %></p>
+  <p><strong>Date: </strong><%= task.due_date %></p>
+  <p><%= link_to "Edit", edit_project_task_path(@project, task), class: "btn btn-success" %></p>
+  <p><%= link_to "Delete", project_task_path(@project, task), method: :delete, data: {confirm: "Are you sure you want to delete?"}, remote: true, class: "btn btn-danger" %></p>
     
   <div class="toggle">
     <% if task.status == true %>

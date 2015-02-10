@@ -8,10 +8,10 @@
 
 <%= form_for [@project, @discussion] do |f| %> 
    <%= f.label :title %>
-   <%= f.text_field :title %>
+   <%= f.text_field :title, class: "form-control" %>
    <br>
    <%= f.label :description %>
-   <%= f.text_area :description %>
+   <%= f.text_area :description, class: "form-control" %>
    <br> 
-   <%= f.submit %> 
+   <%= f.submit "Create Discussion", class: "btn btn-custom" %> 
 <% end %> 

@@ -12,26 +12,39 @@
 
 
 <body>
-  <center>
-    <a href="/">Home</a>
-    |
-    <a href="/about">About</a>
-    |
-    <a href="/projects">All Projects</a>
-    |
-    <a href="/projects/new">New Project</a>
-    |
-    <% if user_signed_in? %>
-          Hello <%= current_user.first_name %>,
-          <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-    <% else %> 
-          <%= link_to "Sign In", new_user_session_path %>
-    <% end %>
-  <br>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Home</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/about">About</a></li>
+            <li><a href="/projects">All Projects</a></li>
+            <li><a href="/projects/new">New Project</a></li>
+            <li class='hello'>
+              <li><a id="sign-in-out">
+                <% if user_signed_in? %>
+                  Hello <%= current_user.first_name %>,
+              </a></li>
+
+              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+                <% else %>
+              <li><%= link_to "Sign In", new_user_session_path %></li>
+                <% end %>
+            </li>
+        </div>
+      </div>
+    </nav>
   <%= flash[:notice] || flash[:alert] %>
   <br>
   <%= yield %>
-</center>
-
 </body>
 </html>

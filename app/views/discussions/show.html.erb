@@ -1,19 +1,21 @@
-<h1>Discussions</h1>
-<hr>
-<h3><%= @discussion.title %></h3>
-  <p>Description: <%= @discussion.description %></p>
-  <p><%= link_to "Edit", edit_project_discussion_path(@project, @discussion) %></p>
-  <p><%= link_to "Delete", project_discussion_path(@project, @discussion), method: :delete, data: {confirm: "Are you sure?"} %></p>
-<hr>
+<div class="left">
+  <h1>Discussions</h1>
+  <hr>
+  <h3><%= @discussion.title %></h3>
+    <p>Description: <%= @discussion.description %></p>
+    <p><%= link_to "Edit", edit_project_discussion_path(@project, @discussion), class: "btn btn-success" %></p>
+    <p><%= link_to "Delete", project_discussion_path(@project, @discussion), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %></p>
+  <hr>
 
-<h2>Comments</h2>
-<div id="comment-form">
-  <%= render "/comments/form" %>
-</div>
+  <h2>Comments</h2>
+  <div id="comment-form">
+    <%= render "/comments/form" %>
+  </div>
 
 
-<div id="comment-index">
-  <% @discussion.comments.each do |comment| %>
-    <%= render partial: "/comments/comment", locals: {comment: comment} %>
-  <% end %>
+  <div id="comment-index">
+    <% @discussion.comments.each do |comment| %>
+      <%= render partial: "/comments/comment", locals: {comment: comment} %>
+    <% end %>
+  </div>
 </div>
