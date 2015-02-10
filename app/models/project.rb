@@ -12,6 +12,11 @@ class Project < ActiveRecord::Base
 
   validates :title, presence: {message: "Must provide a title!"}, uniqueness: {scope: :title}
   validates :description, presence: {message: "Must provide body"}
+
+  def self.search(query)
+    where("title ilike ?", "%#{query}%") 
+    #where("description ilike ?", "%#{query}%") 
+  end
   
 end
 

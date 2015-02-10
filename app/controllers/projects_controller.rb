@@ -4,7 +4,12 @@ class ProjectsController < ApplicationController
 
   def index 
     @projects = Project.all
-  end 
+    if params[:search]
+      @projects = Project.search(params[:search]).order(:id)
+    else
+      @projects = Project.all.order(:id)
+    end
+  end  
 
   def new
     @project = Project.new 

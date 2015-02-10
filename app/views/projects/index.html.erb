@@ -1,5 +1,10 @@
 <center>
-  <h1>All Projects</h1>
+  <h1><a href="/projects">All Projects</a></h1>
+
+  <%= form_tag(projects_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Projects" %><br>
+    <%= submit_tag "Search", :title => nil %>
+  <% end %>
 
   <% @projects.each do |project| %> 
     <h2><%= link_to project.title, project_path(project) %></h2>
