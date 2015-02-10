@@ -2,7 +2,6 @@ class DiscussionsController < ApplicationController
 
   before_action :authenticate_user!, except: [:show]
 
-  
   def create
     @project = Project.find params[:project_id]
     @discussion = @project.discussions.new discussion_params
@@ -14,16 +13,12 @@ class DiscussionsController < ApplicationController
     end 
   end 
 
-  # def create
-  #  @project = Project.find params[:project_id]
-  #  @discussion = Discussion.new params.require(:discussion).permit(:title, :description)
-  #  @discussion.project_id = params[:project_id]
-  #  @discussion.user = current_user
 
   def edit
     @discussion = Discussion.find params[:id]
     @project = @discussion.project
   end 
+
 
   def update 
     @discussion = Discussion.find params[:id]
@@ -34,12 +29,13 @@ class DiscussionsController < ApplicationController
       end 
   end
 
+
   def show 
-    # render text: params 
     @project = Project.find params[:project_id]
     @discussion = Discussion.find params[:id]
     @comment = Comment.new 
   end 
+
 
   def destroy
     @discussion = Discussion.find params[:id]

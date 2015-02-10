@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
 
   before_action :authenticate_user!
+  respond_to :js
 
   def create
     @discussion = Discussion.find params[:discussion_id] 
@@ -9,7 +10,8 @@ class CommentsController < ApplicationController
     @comment.discussion_id = @discussion.id
     @comment.save
     DiscussionMailer.notify_discussion_owner(@comment).deliver_later
-    redirect_to project_discussion_path(@discussion.project_id, @discussion) 
+    respond_with ()
+    # redirect_to project_discussion_path(@discussion.project_id, @discussion) 
   end 
 
   def destroy

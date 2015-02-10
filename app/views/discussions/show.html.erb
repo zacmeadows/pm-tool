@@ -6,17 +6,14 @@
   <p><%= link_to "Delete", project_discussion_path(@project, @discussion), method: :delete, data: {confirm: "Are you sure?"} %></p>
 <hr>
 
-
 <h2>Comments</h2>
-<%= form_for [@discussion, @comment] do |f| %> 
-   <%= f.label :body %>
-   <%= f.text_field :body %>
-   <br>
-   <%= f.submit %> 
-<% end %>
+<div id="comment-form">
+  <%= render "/comments/form" %>
+</div>
 
 
-<% @discussion.comments.each do |comment| %>
-  <p>Comment: <%= comment.body %></p>
-  <p><%= link_to "Delete", discussion_comment_path(@discussion, comment), method: :delete, data: {confirm: "Are you sure?"} %></p>
-<% end %>
+<div id="comment-index">
+  <% @discussion.comments.each do |comment| %>
+    <%= render partial: "/comments/comment", locals: {comment: comment} %>
+  <% end %>
+</div>
