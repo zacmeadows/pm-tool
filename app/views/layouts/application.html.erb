@@ -29,7 +29,8 @@
             <li class="active"><a href="/about">About</a></li>
             <li><a href="/projects">All Projects</a></li>
             <li><a href="/projects/new">New Project</a></li>
-            <li class='hello'>
+            <li class="hello">
+              
               <li><a id="sign-in-out">
                 <% if user_signed_in? %>
                   Hello <%= current_user.first_name %>,
@@ -40,6 +41,7 @@
               <li><%= link_to "Sign In", new_user_session_path %></li>
                 <% end %>
             </li>
+            
         </div>
       </div>
     </nav>

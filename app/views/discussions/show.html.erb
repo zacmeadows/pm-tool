@@ -3,7 +3,7 @@
   <hr>
   <h3><%= @discussion.title %></h3>
     <p>Description: <%= @discussion.description %></p>
-    <p><%= link_to "Edit", edit_project_discussion_path(@project, @discussion), class: "btn btn-success" %></p>
+    <p><%= link_to "Edit", edit_project_discussion_path(@project, @discussion), class: "btn btn-primary" %></p>
     <p><%= link_to "Delete", project_discussion_path(@project, @discussion), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %></p>
   <hr>
 

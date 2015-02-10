@@ -4,5 +4,5 @@ if($('.toggle p a').eq(0).html() === "Complete") {
   $('.toggle p a').eq(0).html("Incomplete");
 }
 else {
-  $('.toggle p a').eq(0).html("Complete"); 
+  $('.toggle p a').eq(0).html("Complete").removeClass("btn btn-danger").addClass("btn btn-success"); 
 }
