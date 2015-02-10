@@ -48,7 +48,8 @@ class TasksController < ApplicationController
     end 
       @task.save
       TaskMailer.task_completion_notification(@task).deliver_later
-      redirect_to project_path(@task.project)
+      respond_with ()
+      # redirect_to project_path(@task.project)
   end 
 
   private 

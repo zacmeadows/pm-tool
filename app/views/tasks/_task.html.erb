@@ -4,9 +4,12 @@
   <p>Date: <%= task.due_date %></p>
   <p><%= link_to "Edit", edit_project_task_path(@project, task) %></p>
   <p><%= link_to "Delete", project_task_path(@project, task), method: :delete, data: {confirm: "Are you sure you want to delete?"}, remote: true %></p>
-  <% if task.status == true %>
-    <p><%= link_to "Complete", toggle_task_path(task), method: :patch %></p>
-  <% else %>
-    <p><%= link_to "Incomplete", toggle_task_path(task), method: :patch %></p>
-  <% end %>
+    
+  <div class="toggle">
+    <% if task.status == true %>
+      <p><%= link_to "Complete", toggle_task_path(task), method: :patch, remote: true %></p>
+    <% else %>
+      <p><%= link_to "Incomplete", toggle_task_path(task), method: :patch, remote: true %></p>
+    <% end %>
+  </div>
 </div>
