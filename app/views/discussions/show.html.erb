@@ -12,7 +12,6 @@
     <%= render "/comments/form" %>
   </div>
 
-
   <div id="comment-index">
     <% @discussion.comments.each do |comment| %>
       <%= render partial: "/comments/comment", locals: {comment: comment} %>
